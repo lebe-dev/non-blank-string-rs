@@ -1,8 +1,11 @@
-pub mod error;
+use serde::{Deserialize, Serialize};
 
 use crate::error::StringValueError;
 
-use serde::{Serialize, Deserialize};
+pub mod error;
+
+#[cfg(feature = "utils")]
+pub mod utils;
 
 pub type RequestId = NonBlankString;
 
@@ -34,9 +37,9 @@ impl From<&str> for NonBlankString {
 
 #[cfg(test)]
 mod non_blank_string_tests {
-    use crate::NonBlankString;
+    use serde::{Deserialize, Serialize};
 
-    use serde::{Serialize, Deserialize};
+    use crate::NonBlankString;
 
     #[test]
     fn return_string_value_for_non_blank_string() {
