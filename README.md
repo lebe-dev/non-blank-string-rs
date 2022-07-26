@@ -13,7 +13,7 @@ non-blank-string-rs = { git = "https://github.com/lebe-dev/non-blank-string-rs",
 Use:
 
 ```rust
-let email = Email::parse("lexi.lambda@gmail.com")?;
+let username = NonBlankString::parse("Hellow")?;
 ```
 
 ## Util functions
@@ -28,3 +28,14 @@ non-blank-string-rs = { git = "https://github.com/lebe-dev/non-blank-string-rs",
 Functions:
 
 - `get_random_nonblank_string()` - return random `NonBlankString`. Useful for tests.
+
+## Limitations
+
+Do not use `NonBlankString` for incoming structs, i.e.:
+
+```rust
+pub struct LoginRequest {
+    pub username: NonBlankString,
+    pub password: NonBlankString
+}
+```
