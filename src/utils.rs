@@ -1,10 +1,12 @@
+use std::str::FromStr;
+
 use fake::{Fake, Faker};
 
 use crate::NonBlankString;
 
 pub fn get_random_nonblank_string() -> NonBlankString {
     let value = Faker.fake::<String>();
-    NonBlankString::new(&value).expect("unexpected blank string value")
+    NonBlankString::from_str(&value).expect("unexpected blank string value")
 }
 
 #[cfg(test)]
