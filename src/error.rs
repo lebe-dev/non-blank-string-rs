@@ -1,7 +1,14 @@
-use thiserror::Error;
+use std::fmt::{Display, Formatter};
 
-#[derive(Error, Debug)]
+#[derive(Debug)]
 pub enum StringValueError {
-    #[error("String cannot be blank")]
     ParseError
 }
+
+impl Display for StringValueError {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        write!(f, "String cannot be blank")
+    }
+}
+
+impl std::error::Error for StringValueError {}

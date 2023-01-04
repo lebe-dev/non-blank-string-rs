@@ -1,6 +1,6 @@
 [package]
 name = "non-blank-string-rs"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2021"
 
 [features]
@@ -8,8 +8,6 @@ default = []
 utils = []
 
 [dependencies]
-thiserror = "1.0.31"
-
 serde = { version = "1", features = ["derive"] }
 
 fake = "2"

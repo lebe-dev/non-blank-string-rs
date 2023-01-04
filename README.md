@@ -4,16 +4,34 @@ Non blank string type for approach suggested by Alexis King - ["Parse, don't val
 
 ## How to use:
 
-Add dependency:
+**Add dependency:**
 
 ```toml
-non-blank-string-rs = { git = "https://github.com/lebe-dev/non-blank-string-rs", version = "1.0.0", features = ["utils"] }
+non-blank-string-rs = { git = "https://github.com/lebe-dev/non-blank-string-rs", version = "1.0.1" }
 ```
 
-Use:
+**Create type:**
 
 ```rust
-let username = NonBlankString::parse("Hellow")?;
+let username = NonBlankString::from_str("Hellow")?;
+
+let username: NonBlankString = "Hellow".parse()?;
+```
+
+**Explicit usage:**
+
+```rust
+let username: NonBlankString = "Hellow".parse()?;
+
+login(username.as_str())
+```
+
+**Implicit usage:**
+
+```rust
+let username: NonBlankString = "Hellow".parse()?;
+
+login(&username)
 ```
 
 ## Util functions
@@ -22,20 +40,15 @@ Add to `Cargo.toml`:
 
 ```toml
 [dev-dependencies]
-non-blank-string-rs = { git = "https://github.com/lebe-dev/non-blank-string-rs", version = "1.0.0", features = ["utils"] }
+non-blank-string-rs = { git = "https://github.com/lebe-dev/non-blank-string-rs", version = "1.0.1", features = ["utils"] }
 ```
 
 Functions:
 
 - `get_random_nonblank_string()` - return random `NonBlankString`. Useful for tests.
 
-## Limitations
 
-Do not use `NonBlankString` for incoming structs, i.e.:
+## Thanks
 
-```rust
-pub struct LoginRequest {
-    pub username: NonBlankString,
-    pub password: NonBlankString
-}
-```
+- Alexis King, article - [Parse, don't validate](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/)
+- Justin Wernick, article - [The Newtype Pattern In Rust](https://www.worthe-it.co.za/blog/2020-10-31-newtype-pattern-in-rust.html)

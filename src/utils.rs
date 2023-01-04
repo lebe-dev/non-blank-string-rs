@@ -4,7 +4,7 @@ use crate::NonBlankString;
 
 pub fn get_random_nonblank_string() -> NonBlankString {
     let value = Faker.fake::<String>();
-    NonBlankString::parse(&value).expect("unexpected blank string value")
+    NonBlankString::new(&value).expect("unexpected blank string value")
 }
 
 #[cfg(test)]
