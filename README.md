@@ -30,7 +30,7 @@ struct UserRegistrationRequest {
 }
 ```
 
-Incoming JSON with blank `username` will raise deserialization error (Serde).
+Incoming JSON with blank `username` field will raise deserialization error (Serde).
 
 ## Util functions
 
