@@ -23,13 +23,14 @@ login(&username)
 Useful for REST API Endpoints, i.e. `/api/register` accepts:
 
 ```rust
+#[derive(Deserialize)]
 struct UserRegistrationRequest {
     pub username: NonBlankString,
     ...
 }
 ```
 
-Incoming JSON with blank `username` will raise deserialization error by Serde.
+Incoming JSON with blank `username` will raise deserialization error (Serde).
 
 ## Util functions
 
