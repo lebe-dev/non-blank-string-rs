@@ -10,29 +10,26 @@ Non blank string type for approach suggested by Alexis King - ["Parse, don't val
 non-blank-string-rs = { git = "https://github.com/lebe-dev/non-blank-string-rs", version = "1.0.1" }
 ```
 
-**Create type:**
+**Use:**
 
 ```rust
 let username = NonBlankString::from_str("Hellow")?;
-
-let username: NonBlankString = "Hellow".parse()?;
-```
-
-**Explicit usage:**
-
-```rust
 let username: NonBlankString = "Hellow".parse()?;
 
-login(username.as_str())
-```
-
-**Implicit usage:**
-
-```rust
-let username: NonBlankString = "Hellow".parse()?;
-
+// fn login(username: &str)
 login(&username)
 ```
+
+Useful for REST API Endpoints, i.e. `/api/register` accepts:
+
+```rust
+struct UserRegistrationRequest {
+    pub username: NonBlankString,
+    ...
+}
+```
+
+Incoming JSON with blank `username` will raise deserialization error by Serde.
 
 ## Util functions
 
