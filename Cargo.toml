@@ -2,6 +2,14 @@
 name = "non-blank-string-rs"
 version = "1.0.1"
 edition = "2021"
+description = "Non blank string type for 'parse, don't validate' approach"
+license = "MIT OR Apache-2.0"
+authors = ["Eugene Lebedev <eugene.0x90@gmail.com>"]
+homepage = "https://github.com/lebe-dev/non-blank-string-rs"
+repository = "https://github.com/lebe-dev/non-blank-string-rs"
+readme = "README.md"
+keywords = ["types"]
+categories = ["parsing", "parser-implementations", "data-structures"]
 
 [features]
 default = []
