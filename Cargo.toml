@@ -1,6 +1,6 @@
 [package]
 name = "non-blank-string-rs"
-version = "1.0.1"
+version = "1.0.2"
 edition = "2021"
 description = "Non blank string type for 'parse, don't validate' approach"
 license = "MIT OR Apache-2.0"
