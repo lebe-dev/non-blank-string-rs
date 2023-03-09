@@ -1,4 +1,7 @@
+use std::fmt::{Display, Formatter};
+use std::ops::Deref;
 use std::str::FromStr;
+
 use serde::{Deserialize, Serialize};
 
 use crate::error::StringValueError;
@@ -47,7 +50,6 @@ impl From<NonBlankString> for String {
     }
 }
 
-use std::ops::Deref;
 impl Deref for NonBlankString {
     type Target = str;
 
@@ -56,9 +58,16 @@ impl Deref for NonBlankString {
     }
 }
 
+impl Display for NonBlankString {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.0)
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use std::str::FromStr;
+
     use fake::{Fake, Faker};
     use serde::{Deserialize, Serialize};
 
