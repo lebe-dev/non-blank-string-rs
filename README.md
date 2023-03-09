@@ -7,7 +7,7 @@ Non blank string type for approach suggested by Alexis King - ["Parse, don't val
 **Add dependency:**
 
 ```toml
-non-blank-string-rs = { git = "https://github.com/lebe-dev/non-blank-string-rs", version = "1.0.1" }
+non-blank-string-rs = { git = "https://github.com/lebe-dev/non-blank-string-rs", version = "1.0.2" }
 ```
 
 **Use:**
@@ -30,7 +30,7 @@ struct UserRegistrationRequest {
 }
 ```
 
-Incoming JSON with blank `username` field will raise deserialization error (Serde).
+Incoming JSON with blank value in `username` field will raise deserialization error (Serde).
 
 ## Util functions
 
@@ -38,7 +38,7 @@ Add to `Cargo.toml`:
 
 ```toml
 [dev-dependencies]
-non-blank-string-rs = { git = "https://github.com/lebe-dev/non-blank-string-rs", version = "1.0.1", features = ["utils"] }
+non-blank-string-rs = { git = "https://github.com/lebe-dev/non-blank-string-rs", version = "1.0.2", features = ["utils"] }
 ```
 
 Functions:
