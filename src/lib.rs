@@ -13,7 +13,7 @@ pub mod utils;
 
 pub type RequestId = NonBlankString;
 
-#[derive(Serialize, Deserialize, PartialEq, Clone, Debug)]
+#[derive(Serialize, Deserialize, PartialEq, Eq, Ord, PartialOrd, Clone, Debug)]
 #[serde(try_from = "String", into = "String")]
 pub struct NonBlankString(String);
 
