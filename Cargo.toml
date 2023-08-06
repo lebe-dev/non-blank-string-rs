@@ -13,12 +13,13 @@ categories = ["parsing", "parser-implementations", "data-structures"]
 
 [features]
 default = []
-utils = []
+utils = ["dep:fake"]
 
 [dependencies]
 serde = { version = "1.0.178", features = ["derive"] }
 
-fake = "2.6.1"
+fake = { version = "2.6.1", optional = true }
 
 [dev-dependencies]
 serde_json = "1.0.104"
+fake = "2.6.1"
