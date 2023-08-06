@@ -6,8 +6,8 @@ Non blank string type for approach suggested by Alexis King - ["Parse, don't val
 
 **Add dependency:**
 
-```toml
-non-blank-string-rs = { git = "https://github.com/lebe-dev/non-blank-string-rs", version = "1.0.2" }
+```shell
+cargo add non-blank-string-rs
 ```
 
 **Use:**
@@ -38,7 +38,7 @@ Add to `Cargo.toml`:
 
 ```toml
 [dev-dependencies]
-non-blank-string-rs = { git = "https://github.com/lebe-dev/non-blank-string-rs", version = "1.0.2", features = ["utils"] }
+non-blank-string-rs = { version = "1.0.3", features = ["utils"] }
 ```
 
 Functions:
