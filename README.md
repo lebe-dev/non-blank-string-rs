@@ -38,7 +38,7 @@ Add to `Cargo.toml`:
 
 ```toml
 [dev-dependencies]
-non-blank-string-rs = { version = "1.0.3", features = ["utils"] }
+non-blank-string-rs = { version = "1.0.4", features = ["utils"] }
 ```
 
 Functions:
