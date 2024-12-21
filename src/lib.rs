@@ -13,7 +13,7 @@ pub mod utils;
 
 pub type RequestId = NonBlankString;
 
-#[derive(Serialize, Deserialize, PartialEq, Eq, Ord, PartialOrd, Clone, Debug)]
+#[derive(Serialize, Deserialize, PartialEq, Eq, Ord, PartialOrd, Hash, Clone, Debug)]
 #[serde(try_from = "String", into = "String")]
 pub struct NonBlankString(String);
 
@@ -23,7 +23,6 @@ impl FromStr for NonBlankString {
     fn from_str(value: &str) -> Result<Self, Self::Err> {
         if value.len() > 0 {
             Ok(Self(value.to_string()))
-
         } else {
             Err(StringValueError::ParseError)
         }
@@ -89,7 +88,7 @@ mod tests {
 
     #[derive(Serialize, Deserialize, PartialEq, Debug)]
     struct Demo {
-        pub login: NonBlankString
+        pub login: NonBlankString,
     }
 
     #[test]
@@ -97,7 +96,7 @@ mod tests {
         let value = get_random_string();
 
         let entity = Demo {
-          login: NonBlankString::from_str(&value).unwrap()
+            login: NonBlankString::from_str(&value).unwrap(),
         };
 
         let json = serde_json::to_string(&entity).unwrap();
@@ -116,7 +115,7 @@ mod tests {
         let json = "{\"login\":\"\"}".to_string();
         match serde_json::from_str::<Demo>(&json) {
             Ok(_) => panic!("error expected"),
-            Err(e) => println!("{}", e)
+            Err(e) => println!("{}", e),
         }
     }
 

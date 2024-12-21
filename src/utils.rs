@@ -14,6 +14,11 @@ mod tests {
     use crate::utils::get_random_nonblank_string;
 
     #[test]
+    fn hashmap_test() {
+        let hashmap: HashMap<NonBlankString, NonBlankString> = HashMap::new();
+    }
+
+    #[test]
     fn should_return_random_values() {
         let value1 = get_random_nonblank_string();
         let value2 = get_random_nonblank_string();
